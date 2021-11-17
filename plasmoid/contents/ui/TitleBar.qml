@@ -25,13 +25,13 @@ import "../code/utils.js" as Utils
 RowLayout {
     Layout.minimumHeight: implicitHeight + units.smallSpacing
     Layout.maximumHeight: implicitHeight + units.smallSpacing
-    Layout.fillWidth: true
+    Layout.fillWidth: false
     Layout.fillHeight: false
     visible: false
 
     PlasmaExtras.Heading {
         id: titleBar
-        Layout.fillWidth: true
+        Layout.fillWidth: false
         level: 2
         lineHeight: 1.2
         text: mpris2.identity

@@ -30,6 +30,8 @@ IconWidget {
 
     iconSource: 'down-arrow'
 
+    visible: false
+
     QtObject {
         id: svgSource
 

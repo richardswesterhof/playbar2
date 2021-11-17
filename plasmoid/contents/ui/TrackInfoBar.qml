@@ -47,8 +47,10 @@ PlaybackItem {
         flow: vertical ? Flow.TopToBottom : Flow.LeftToRight
 
         Item {
-            width: buttonSize.width
-            height: buttonSize.height
+            // width: buttonSize.width
+            // height: buttonSize.height
+            width: 0
+            height: 0
 
             property alias iconSource: button.iconSource
 
@@ -61,7 +63,8 @@ PlaybackItem {
                 iconSource: mpris2.playing ? 'media-playback-pause' : 'media-playback-start'
                 enabled: mpris2.sourceActive
 
-                size: Math.min(buttonSize.width, buttonSize.height)
+                // size: Math.min(buttonSize.width, buttonSize.height)
+                size: 0
                 onClicked: mpris2.playPause()
                 anchors.centerIn: parent
             }
@@ -100,10 +103,11 @@ PlaybackItem {
                 width: content.size
                 height: maxWidth
 
-                text: mpris2.title && mpris2.artist ? i18n('%1 <b>By</b> %2', mpris2.title, mpris2.artist)
+                text: mpris2.title && mpris2.artist ? i18n('%1 - %2', mpris2.title, mpris2.artist)
                         : (mpris2.title ? mpris2.title : '')
 
                 verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignRight
                 wrapMode: scroll.scrolling ? Text.NoWrap : Text.WrapAnywhere
                 elide: scroll.scrolling ? Text.ElideNone : Text.ElideRight
                 maximumLineCount: 1
@@ -113,7 +117,7 @@ PlaybackItem {
                     id: scroll
                     target: trackinfo
                     anchors.fill: target
-                    autoScroll: true
+                    autoScroll: false
                     velocity: 30
                     vertical: root.vertical
                     reverse: root.leftEdge

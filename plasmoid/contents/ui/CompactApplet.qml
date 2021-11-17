@@ -100,11 +100,11 @@ Flow {
 
         PopupButton {
             id: popup
-
             controlsVisible: loaded && loader.item.visible
-
-            size: popupIconSize
-
+         
+            // size: popupIconSize
+            size: 0
+         
             opened: plasmoid.expanded
             anchors.centerIn: parent
             onClicked: {

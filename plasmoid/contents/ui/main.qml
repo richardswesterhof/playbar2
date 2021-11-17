@@ -340,9 +340,9 @@ Item {
                                                    : mpris2.recentSources.length > 0
                                                      ? mpris2.recentSources[0].identity  : 'PlayBar'
 
-        property string artist: mpris2.artist !== '' ? i18n('<b>By</b> %1 ', mpris2.artist) : ''
+        property string artist: mpris2.artist !== '' ? i18n('- %1 ', mpris2.artist) : ''
 
-        property string album: mpris2.album !== '' ? i18n('<b>On</b> %1', mpris2.album) : ''
+        property string album: mpris2.album !== '' ? i18n('(%1)', mpris2.album) : ''
 
         property string subText: (title === 'PlayBar' && artist === '' && album === '')
                                  ? i18n('Client MPRIS2, allows you to control your favorite media player')
@@ -389,9 +389,12 @@ Item {
                 plasmoid.setAction('next', i18n('Play next track'), 'media-skip-forward')
 
                 // enable/disable actions
-                plasmoid.action('previous').enabled = mpris2.canGoPrevious
-                plasmoid.action('playPause').enabled = mpris2.canPlayPause
-                plasmoid.action('next').enabled = mpris2.canGoNext
+                // plasmoid.action('previous').enabled = mpris2.canGoPrevious
+                // plasmoid.action('playPause').enabled = mpris2.canPlayPause
+                // plasmoid.action('next').enabled = mpris2.canGoNext
+                plasmoid.action('previous').enabled = false
+                plasmoid.action('playPause').enabled = false
+                plasmoid.action('next').enabled = false
             }
 
             plasmoid.setAction('stop', i18n('Stop'), 'media-playback-stop')
